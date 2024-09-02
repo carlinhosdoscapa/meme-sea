@@ -6,7 +6,9 @@
 local _wait = task.wait
 repeat _wait() until game:IsLoaded()
 local _env = getgenv and getgenv() or {}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/MemeSea/main/Source.lua"))()
 
+_wait(4)
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local VirtualUser = game:GetService("VirtualUser")
 local RunService = game:GetService("RunService")
