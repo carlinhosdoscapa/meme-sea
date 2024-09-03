@@ -773,7 +773,7 @@ function autoKaitun(onStarted)
    
     -- end-game
     rollPowers()
-    lordSus()
+    autoFarm()
     -- balls script: Funcs:VerifyItems("Ball")
         
 
