@@ -766,11 +766,8 @@ function autoKaitun(onStarted)
 
         if not Funcs:VerifySword("Yellow Blade") then return autoYellowBlade() end
         
-    else
-        rollPowers()
-        autoFarm() 
     end
-   
+    
     -- end-game
     rollPowers()
     autoFarm()
