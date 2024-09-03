@@ -9,6 +9,7 @@ local _env = getgenv and getgenv() or {}
 loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/MemeSea/main/Source.lua"))()
 
 _wait(4)
+
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local VirtualUser = game:GetService("VirtualUser")
 local RunService = game:GetService("RunService")
@@ -184,6 +185,13 @@ end
 
 Funcs.VerifyGamePass = function(self, GName)
     return Player.PlayerSpecial:FindFirstChild(GName).value
+end
+
+
+
+Funcs.VerifyPower = function(salf,PName)
+    local FS = Items.Power
+    return FS:FindFirstChild(PName).value
 end
   
   for Npc,Quest in pairs(MQuestSettings) do
@@ -709,8 +717,10 @@ end
 function autoStorePowers()
     for _,v in ipairs(Player.Backpack:GetChildren()) do
         if v:IsA("Tool") and v.ToolTip == "Power" and v:GetAttribute("Using") == nil then
-          v.Parent = Player.Character
-          OtherEvent.MainEvents.Modules:FireServer("Eatable_Power", { Action = "Store", Tool = v })
+            if Funcs:VerifyPower(v.Name) < 99 then
+                v.Parent = Player.Character
+                OtherEvent.MainEvents.Modules:FireServer("Eatable_Power", { Action = "Store", Tool = v })
+            end
         end
     end
 end
@@ -762,7 +772,8 @@ function autoKaitun(onStarted)
     end
    
     -- end-game
-    
+    rollPowers()
+    lordSus()
     -- balls script: Funcs:VerifyItems("Ball")
         
 
@@ -825,5 +836,6 @@ function pcallAndExec()
 end
 
 pcallAndExec()
+
 
 
