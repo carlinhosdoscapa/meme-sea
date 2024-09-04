@@ -6,9 +6,19 @@
 local _wait = task.wait
 repeat _wait() until game:IsLoaded()
 local _env = getgenv and getgenv() or {}
-loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/MemeSea/main/Source.lua"))()
 
-_wait(4)
+function JoinInGame()
+    for i, v in pairs(
+        getconnections(
+            game:GetService("Players").LocalPlayer.PlayerGui.LoadingGui:WaitForChild("PlayBackground").Play.Activated
+)
+    ) do
+        v.Function()
+    end
+end
+
+JoinInGame()
+
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local VirtualUser = game:GetService("VirtualUser")
@@ -735,17 +745,7 @@ function rollPowers()
     end
 end
 
-function JoinInGame()
-    for i, v in pairs(
-        getconnections(
-            game:GetService("Players").LocalPlayer.PlayerGui.LoadingGui:WaitForChild("PlayBackground").Play.Activated
-)
-    ) do
-        v.Function()
-    end
-end
 
-JoinInGame()
 
 function autoKaitun(onStarted)
     
