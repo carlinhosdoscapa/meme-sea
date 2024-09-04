@@ -61,7 +61,7 @@ local _huge = math.huge
 
 --- setups
 JoinInGame()
-RunService:Set3dRenderingEnabled(false)
+
 
 task.spawn(function()
   if not _env.LoadedHideUsername then
@@ -749,7 +749,7 @@ function rollPowers()
     end
 end
 
-
+RunService:Set3dRenderingEnabled(false)
 
 function autoKaitun(onStarted)
     
