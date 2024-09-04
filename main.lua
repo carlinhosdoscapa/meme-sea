@@ -17,8 +17,6 @@ function JoinInGame()
     end
 end
 
-game:GetService("RunService"):Set3dRenderingEnabled(false)
-
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local VirtualUser = game:GetService("VirtualUser")
@@ -749,7 +747,6 @@ function rollPowers()
     end
 end
 
-RunService:Set3dRenderingEnabled(false)
 
 function autoKaitun(onStarted)
     
@@ -817,6 +814,7 @@ end)
 
 
 task.spawn(function()
+        game:GetService("RunService"):Set3dRenderingEnabled(false)
     if not _env.AntiAfk then
       _env.AntiAfk = true
       
