@@ -735,6 +735,18 @@ function rollPowers()
     end
 end
 
+function JoinInGame()
+    for i, v in pairs(
+        getconnections(
+            game:GetService("Players").LocalPlayer.PlayerGui.LoadingGui:WaitForChild("PlayBackground").Play.Activated
+)
+    ) do
+        v.Function()
+    end
+end
+
+JoinInGame()
+
 function autoKaitun(onStarted)
     
     autoStorePowers()
