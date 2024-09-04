@@ -814,7 +814,7 @@ end)
 
 
 task.spawn(function()
-        game:GetService("RunService"):Set3dRenderingEnabled(false)
+      
     if not _env.AntiAfk then
       _env.AntiAfk = true
       
