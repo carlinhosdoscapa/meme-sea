@@ -17,10 +17,7 @@ function JoinInGame()
     end
 end
 
---setups
-JoinInGame()
-local RunService = game:GetService("RunService")
-game:GetService("RunService"):Set3dRenderingEnabled(false)
+
 
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -61,6 +58,10 @@ local CFrame_new = CFrame.new
 local Vector3_new = Vector3.new
 
 local _huge = math.huge
+
+--- setups
+JoinInGame()
+RunService:Set3dRenderingEnabled(false)
 
 task.spawn(function()
   if not _env.LoadedHideUsername then
