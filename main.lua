@@ -17,7 +17,10 @@ function JoinInGame()
     end
 end
 
+--setups
 JoinInGame()
+local RunService = game:GetService("RunService")
+game:GetService("RunService"):Set3dRenderingEnabled(false)
 
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
