@@ -759,7 +759,6 @@ function autoKaitun(onStarted)
     end
     
     -- end-game
-    rollPowers()
     raidFarm()
     -- balls script: Funcs:VerifyItems("Ball")
         
