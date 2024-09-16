@@ -61,6 +61,37 @@ local _huge = math.huge
 JoinInGame()
 
 
+function HopLow()
+    local Players = game:GetService("Players")
+
+    local function getNumberOfPlayers()
+        return #Players:GetPlayers()
+    end
+
+
+    if getNumberOfPlayers() > 6 then
+        SiteHopServerLess = game.HttpService:JSONDecode(
+            game:HttpGet(
+                "https://games.roblox.com/v1/games/" ..
+                    game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"
+            )
+        )
+
+        for i, v in pairs(SiteHopServerLess.data) do
+            if v.playing and tonumber(v.playing) <= 4 and v.id ~= game.JobId then
+                game:GetService("TeleportService"):TeleportToPlaceInstance(
+                    game.PlaceId,
+                    tostring(v.id),
+                    game.Players.LocalPlayer
+                )
+            end
+        end
+    end
+end
+
+
+
+
 task.spawn(function()
   if not _env.LoadedHideUsername then
     _env.LoadedHideUsername = true
@@ -770,7 +801,7 @@ end
 
 task.spawn(function()
     while _wait(60) do
-
+        HopLow()
         local tool 
 
         if Settings.ToolFarm == "Fight" then tool = "Weapon" end
